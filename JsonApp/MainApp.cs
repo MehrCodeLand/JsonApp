@@ -27,6 +27,12 @@ namespace JsonApp
                 var myFile = File.Create(@"C:\JsonAppFile\JsonFile.json");
                 myFile.Close();
             }
+            else
+            {
+                File.Delete(@"C:\JsonAppFile\JsonFile.json");
+                System.IO.Directory.Delete(@"C:\JsonAppFile");
+                CreateJsonFile();
+            }
         }
         public static List<User> CreateData()
         {
