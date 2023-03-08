@@ -19,6 +19,7 @@ namespace JsonApp
             WriteData();
         }
 
+        // create Folder and File in drive C
         public static void CreateJsonFile()
         {
             if (!File.Exists(@"C:\JsonAppFile\JsonFile.json"))
@@ -34,6 +35,8 @@ namespace JsonApp
                 CreateJsonFile();
             }
         }
+        
+        // create our fake data
         public static List<User> CreateData()
         {
             List<User> users = new List<User>();
@@ -54,11 +57,15 @@ namespace JsonApp
 
             return users;
         }
+
+        // convert our data to the json file
         public static string CreateJsonString()
         {
             var jsonStr = JsonConvert.SerializeObject(CreateData());
             return jsonStr;
         }
+
+        // main function and write all data to json file
         public static void WriteData()
         {
             var jsonStr = CreateJsonString();
